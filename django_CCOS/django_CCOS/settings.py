@@ -74,6 +74,7 @@ TEMPLATES = [
             # 'builtins': [
             #     'django.templatetags.static'
             # ],
+            
         },
     },
 ]
