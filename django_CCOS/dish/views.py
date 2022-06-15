@@ -1,4 +1,6 @@
+from dis import dis
 from django.shortcuts import render
+from sklearn.preprocessing import OrdinalEncoder
 from .models import Shop, Dish, Orders
 from customer.models import Customer
 from django.contrib import messages
@@ -15,6 +17,8 @@ def show_dish(request):
         'shop_with_dish_list': Shop.objects.all(),
         'dish_list': Dish.objects.all(),
     }
+
+
 
     return render(request, template_name, context)
 
@@ -45,6 +49,11 @@ def get_order(request, dish_id):
         order.order_status = 0
         order.save()
         messages.success(request, '下单成功，订单号为 (Order ID-{}). 请支付 {} 元'.format(order.order_id, order.order_price))
+
+        now_num = Orders.objects.filter(dish=dish).count() 
+        Dish.objects.filter(dish_id=dish_id).update(dish_num=now_num)
+        print(now_num)
+
         return redirect("dish:show_order")
 
     except ObjectDoesNotExist:

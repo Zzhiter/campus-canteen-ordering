@@ -7,7 +7,7 @@ from .models import Dish, Orders, Comments
 class DishAdmin(admin.ModelAdmin):
     list_per_page = 10
     search_fields = ['dish_name']
-    list_display = ['dish_id', 'dish_name', 'shop', 'dish_price', 'dish_active']
+    list_display = ['dish_id', 'dish_name', 'shop', 'dish_price','dish_num', 'dish_active']
 
 
 class OrdersAdmin(admin.ModelAdmin):

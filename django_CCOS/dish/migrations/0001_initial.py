@@ -19,6 +19,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('dish_id', models.AutoField(primary_key=True, serialize=False, verbose_name='菜品编号')),
                 ('dish_name', models.CharField(max_length=20, verbose_name='菜品名称')),
+                ('dish_num', models.IntegerField(verbose_name="菜品销量",default=0)),
                 ('dish_detail', models.CharField(blank=True, max_length=200, null=True, verbose_name='菜品描述')),
                 ('dish_price', models.DecimalField(decimal_places=2, max_digits=5, verbose_name='菜品价格')),
                 ('dish_photo', models.ImageField(blank=True, null=True, upload_to='images/dish', verbose_name='菜品照片')),

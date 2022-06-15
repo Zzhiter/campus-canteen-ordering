@@ -18,6 +18,7 @@ class Dish(models.Model):
     shop = models.ForeignKey(Shop, models.CASCADE, verbose_name='窗口')
     dish_name = models.CharField(max_length=20, verbose_name='菜品名称')
     dish_detail = models.CharField(max_length=200, blank=True, null=True, verbose_name='菜品描述')
+    dish_num = models.IntegerField(verbose_name="菜品销量",default=0)
     dish_price = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="菜品价格")
     dish_photo = models.ImageField(upload_to='images/dish', null=True, blank=True, verbose_name='菜品照片')
     dish_active = models.IntegerField(choices = [(1, '销售中'),(0, '售罄')], verbose_name='菜品状态')
